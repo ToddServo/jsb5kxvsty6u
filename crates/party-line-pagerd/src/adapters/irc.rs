@@ -258,7 +258,7 @@ mod tests {
         assert!(!is_direct("+modeless", "party-line-pager"));
         assert!(!is_direct("!12345chan", "party-line-pager"));
         assert!(is_direct("party-line-pager", "party-line-pager"));
-        assert!(is_direct("PartyLinePager", "party-line-pager"), "nicks are case insensitive");
+        assert!(is_direct("PARTY-LINE-PAGER", "party-line-pager"), "nicks are case insensitive");
         assert!(
             !is_direct("someone-else", "party-line-pager"),
             "a PRIVMSG aimed elsewhere is not ours"
