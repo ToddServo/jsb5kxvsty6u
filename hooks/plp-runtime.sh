@@ -152,9 +152,9 @@ _direct_up() {
     # or the subshell is signalled. $! captures the subshell PID.
     case "$_name" in
         *tor*)
-            _log "starting tor relay via entrypoint.sh"
+            _log "starting tor relay via docker/entrypoint.sh"
             ( trap 'kill $(jobs -p) 2>/dev/null' EXIT
-              tail -f /dev/null | "$_dir/entrypoint.sh" relay
+              tail -f /dev/null | "$_dir/docker/entrypoint.sh" relay
             ) >"$_lf" 2>&1 &
             ;;
         *i2p*)
@@ -166,7 +166,7 @@ _direct_up() {
         *reticulum*|*rns*)
             _log "starting reticulum reflector"
             ( trap 'kill $(jobs -p) 2>/dev/null' EXIT
-              tail -f /dev/null | "$_dir/docker-entrypoint.sh" bash "$_dir/rns-party-line.sh" relay
+              tail -f /dev/null | "$_dir/docker/entrypoint.sh" bash "$_dir/rns-party-line.sh" relay
             ) >"$_lf" 2>&1 &
             ;;
         *)
