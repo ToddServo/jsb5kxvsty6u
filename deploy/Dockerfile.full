@@ -140,10 +140,10 @@ COPY --from=signal-cli /usr/bin/signal-cli-rest-api_plugin_loader.so /usr/local/
 COPY --from=party-lines /opt/tor-party-line /opt/tor-party-line
 COPY --from=party-lines /opt/i2p-party-line /opt/i2p-party-line
 COPY --from=party-lines /opt/reticulum-party-line /opt/reticulum-party-line
-RUN chmod +x /opt/tor-party-line/entrypoint.sh \
+RUN chmod +x /opt/tor-party-line/docker/entrypoint.sh \
              /opt/tor-party-line/tor-party-line.sh \
              /opt/i2p-party-line/i2p-party-line.sh \
-             /opt/reticulum-party-line/docker-entrypoint.sh \
+             /opt/reticulum-party-line/docker/entrypoint.sh \
              /opt/reticulum-party-line/rns-party-line.sh \
  && ln -s /opt/tor-party-line/tor-party-line.sh /tor-party-line.sh
 
